@@ -1,9 +1,15 @@
-# Use an OpenJDK image
+# Use a base image with Java installed
 FROM openjdk:11-jre-slim
 
-# Copy the JAR file into the container
-COPY target/SampleApp-1.0-SNAPSHOT.jar /app.jar
+# Set the working directory in the container
+WORKDIR /app
 
-# Run the JAR file
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+# Copy the JAR file created by Maven (adjust the path as necessary)
+COPY target/DevOpsModelLab.jar DevOpsModelLab.jar
+
+# Expose the port your application runs on (optional)
+EXPOSE 8081
+
+# Command to run the application
+CMD ["java", "-jar", "DevOpsModelLab.jar"]
 
