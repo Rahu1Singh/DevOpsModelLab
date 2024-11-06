@@ -5,11 +5,11 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the generated JAR file into the container
-COPY target/my-java-app.jar my-java-app.jar
+COPY target/SampleApp-1.0-SNAPSHOT.jar app.jar
 
 # Expose the port your application runs on (optional)
 EXPOSE 8081
 
 # Command to run the application
-CMD ["java", "-jar", "my-java-app.jar"]
+CMD ["java", "-jar", "app.jar"]
 
